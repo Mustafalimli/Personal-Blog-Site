@@ -1,0 +1,123 @@
+/* Temel Stil Ayarları */
+body {
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.dark-mode {
+    background-color: #1e2125;
+    color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #e60023;
+    /* Pinterest kırmızısı */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-button {
+    background-color: #bd081c;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #e60023;
+}
+
+.toggle-button {
+    background-color: #bd081c;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: auto;
+    /* Butonu en sağa yerleştir */
+}
+
+.toggle-button:hover {
+    background-color: #e60023;
+}
+
+/* İçerik */
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+/* Yazılarım Sayfası - Grid Yapısı */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 100%;
+}
+
+body.dark-mode .card {
+    background-color: #343a40;
+}
+
+.card h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #bd081c;
+    /* Pinterest koyu kırmızı */
+}
+
+.card p {
+    font-size: 1.2em;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.full-width {
+    grid-column: span 2;
+}

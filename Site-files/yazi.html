@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yazılarım</title>
+    <link rel="stylesheet" href="/Site-files/styles.css">
+    <script src="/Site-files/script.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="window.location.href='/site-files/index.html'">Ana Sayfa</button>
+        <button class="nav-button" onclick="window.location.href='yazi.html'">Yazılarım</button>
+
+        <button class="toggle-button" id="theme-switch" onclick="toggleDarkMode()">Tema Değiştir</button>
+
+    </nav>
+
+    <!-- Yazılarım Sayfası -->
+    <div id="posts-content" class="content hidden grid-container">
+        <div class="card" data-date="2024-10-01">
+            <h3>Blog Yazısı 1</h3>
+            <img src="/Assets/cip-gorseli-1024x574.jpg" alt="Görsel 1" class="card-image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit.</p>
+        </div>
+        <div class="card" data-date="2024-10-10">
+            <h3>Blog Yazısı 2</h3>
+            <img src="/Assets/çip2.jpeg" alt="Görsel 2" class="card-image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit.</p>
+        </div>
+        <div class="card full-width" data-date="2024-10-15">
+            <h3>Blog Yazısı 3</h3>
+            <img src="/Assets/çip3.jpg" alt="Görsel 3" class="card-image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit. Proin ullamcorper, orci vel
+                commodo feugiat.</p>
+        </div>
+    </div>
+</body>
+
+</html>
