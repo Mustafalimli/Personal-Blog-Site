@@ -16,11 +16,11 @@ body.dark-mode {
 
 /* Navbar */
 .navbar {
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
     background-color: #e60023;
-    /* Pinterest kırmızısı */
     color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -52,14 +52,13 @@ body.dark-mode {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-left: auto;
-    /* Butonu en sağa yerleştir */
 }
 
 .toggle-button:hover {
     background-color: #e60023;
 }
 
-/* İçerik */
+/* Admin Panel İçeriği */
 .content {
     padding: 20px;
     max-width: 800px;
@@ -87,7 +86,6 @@ body.dark-mode {
     display: flex;
     flex-direction: column;
     align-items: start;
-    max-width: 100%;
 }
 
 body.dark-mode .card {
@@ -98,7 +96,6 @@ body.dark-mode .card {
     font-size: 1.8em;
     margin-bottom: 10px;
     color: #bd081c;
-    /* Pinterest koyu kırmızı */
 }
 
 .card p {
@@ -110,14 +107,57 @@ body.dark-mode .card {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.card-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    object-fit: cover;
-}
-
 .full-width {
     grid-column: span 2;
+}
+
+/* Buton Stilleri */
+.edit-button,
+.delete-button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Yeni Yazı Formu */
+#newPostForm {
+    margin-top: 20px;
+}
+
+#newPostForm input,
+#newPostForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#newPostForm button {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#newPostForm button:hover {
+    background-color: #218838;
 }
