@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin Paneli</title>
+</head>
+
+<body class="light-mode">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="nav-button">Ana Sayfa</button>
+        <button class="nav-button">Yazılarım</button>
+        <button class="nav-button">Admin Paneli</button>
+        <button class="toggle-button">Tema Değiştir</button>
+    </nav>
+
+    <!-- Admin Panel İçeriği -->
+    <div class="content">
+        <h1>Yazılarım</h1>
+
+        <!-- Yazılar Listeleme Bölümü -->
+        <div class="grid-container">
+            <div class="card" id="post-1">
+                <h3>Blog Yazısı 1</h3>
+                <p>Blog Yazısı 1 içeriği burada yer alır.</p>
+                <button class="edit-button"
+                    onclick="openEditForm(1, 'Blog Yazısı 1', 'Blog Yazısı 1 içeriği burada yer alır.', 'path/to/image1.jpg')">Düzenle</button>
+                <button class="delete-button" onclick="deletePost(1)">Sil</button>
+            </div>
+            <div class="card" id="post-2">
+                <h3>Blog Yazısı 2</h3>
+                <p>Blog Yazısı 2 içeriği burada yer alır.</p>
+                <button class="edit-button"
+                    onclick="openEditForm(2, 'Blog Yazısı 2', 'Blog Yazısı 2 içeriği burada yer alır.', 'path/to/image2.jpg')">Düzenle</button>
+                <button class="delete-button" onclick="deletePost(2)">Sil</button>
+            </div>
+            <div class="card full-width" id="post-3">
+                <h3>Blog Yazısı 3</h3>
+                <p>Blog Yazısı 3 içeriği burada yer alır.</p>
+                <button class="edit-button"
+                    onclick="openEditForm(3, 'Blog Yazısı 3', 'Blog Yazısı 3 içeriği burada yer alır.', 'path/to/image3.jpg')">Düzenle</button>
+                <button class="delete-button" onclick="deletePost(3)">Sil</button>
+            </div>
+        </div>
+
+        <!-- Yazı Düzenleme Formu -->
+        <h2>Düzenle</h2>
+        <form id="editPostForm" style="display:none;">
+            <input type="hidden" id="editPostId">
+            <input type="text" id="editPostTitle" placeholder="Yazı Başlığı" required>
+            <textarea id="editPostContent" placeholder="Yazı İçeriği" required></textarea>
+            <img id="editPostImagePreview" src="" alt="Current Image" style="max-width: 200px;">
+            <input type="file" id="editPostImage" accept="image/*">
+            <button type="submit">Yazıyı Güncelle</button>
+        </form>
+    </div>
+
+    <script>
+        // Yazıyı silme fonksiyonu
+        function deletePost(postId) {
+            // Burada yazının id'si ile ilgili HTML öğesini bulup kaldırıyoruz
+            const postElement = document.getElementById(`post-${postId}`);
+
+            // Kullanıcıdan silme işlemi için onay alıyoruz
+            const confirmation = confirm(`Yazıyı silmek istediğinizden emin misiniz?`);
+            if (confirmation) {
+                // Yazı silindiği zaman DOM'dan kaldırıyoruz
+                postElement.remove();
+
+                // Gerçek veritabanında silme işlemi yapılabilir. Örneğin, API'ye istek gönderebilirsiniz.
+                alert(`Blog Yazısı ${postId} silindi.`);
+            }
+        }
+
+        // Düzenleme formunu açmak için fonksiyon
+        function openEditForm(postId, title, content, imagePath) {
+            document.getElementById('editPostForm').style.display = 'block';
+            document.getElementById('editPostId').value = postId;
+            document.getElementById('editPostTitle').value = title;
+            document.getElementById('editPostContent').value = content;
+            document.getElementById('editPostImagePreview').src = imagePath;
+        }
+
+        // Yazıyı düzenleme işlemi
+        document.getElementById('editPostForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const postId = document.getElementById('editPostId').value;
+            const title = document.getElementById('editPostTitle').value;
+            const content = document.getElementById('editPostContent').value;
+            const image = document.getElementById('editPostImage').files[0];
+
+            // Burada, veritabanına veya API'ye yeni veriyi gönderebilirsiniz.
+            alert(`Yazıyı Güncelle: ${title}\nİçerik: ${content}\nResim: ${image ? image.name : 'Yok'}`);
+            // Burada işlemi backend'e ileterek veri güncellemesi yapabilirsiniz.
+        });
+
+        // Yeni yazı ekleme işlemi
+        document.getElementById('newPostForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const image = document.getElementById('postImage').files[0];
+            // Yeni yazıyı backend'e gönderip ekleyebilirsiniz
+            alert(`Yeni Yazı: ${title}\nİçerik: ${content}\nResim: ${image.name}`);
+        });
+    </script>
+</body>
+
+</html>
